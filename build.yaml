@@ -22,6 +22,8 @@ include:
     shield: corne_tp_left
   - board: nice_nano_v2
     shield: corne_tp_right
+  - board: seeeduino_xiao_ble
+    shield: xiao_tp_test
 
   # Alternative PINs firmware
   # This builds an additional firmware for the right half that overrides the
