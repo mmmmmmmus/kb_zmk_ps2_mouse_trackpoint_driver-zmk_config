@@ -1,5 +1,6 @@
 /* xiao_tp_test.overlay */
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <dt-bindings/pinctrl/nrf-pinctrl.h>
 
 / {
     chosen {
@@ -36,8 +37,8 @@
     #undef MOUSE_PS2_PIN_SDA_PRO_MICRO
     #undef MOUSE_PS2_PIN_SDA_PINCTRL
 
-    #define MOUSE_PS2_PIN_SCL_PRO_MICRO <&gpio0 1 GPIO_ACTIVE_HIGH>
-    #define MOUSE_PS2_PIN_SDA_PRO_MICRO <&gpio0 0 GPIO_ACTIVE_HIGH>
+    #define MOUSE_PS2_PIN_SCL_PRO_MICRO <&pro_micro 1 GPIO_ACTIVE_HIGH>
+    #define MOUSE_PS2_PIN_SDA_PRO_MICRO <&pro_micro 0 GPIO_ACTIVE_HIGH>
     #define MOUSE_PS2_PIN_SDA_PINCTRL <NRF_PSEL(UART_RX, 0, 8)>
 #endif
 
