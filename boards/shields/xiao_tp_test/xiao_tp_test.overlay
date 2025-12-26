@@ -1,4 +1,4 @@
-/* xiao_tp_test.overlay */
+/* xiao_tp_test.overlay default*/
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/pinctrl/nrf-pinctrl.h>
 #include <dt-bindings/gpio/gpio.h>
