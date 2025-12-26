@@ -1,7 +1,6 @@
-/* xiao_tp_test.overlay default*/
+/* xiao_tp_test.overlay */
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/pinctrl/nrf-pinctrl.h>
-#include <dt-bindings/gpio/gpio.h>
 
 / {
     chosen {
@@ -10,40 +9,28 @@
 
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-direct";
-        
-        /* D2 pin for left click test */
-        input-gpios
-            = <&gpio0 28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            ;
+        input-gpios = <&gpio0 28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
     
     ps2_mouse {
         compatible = "zmk,input-mouse-ps2-uart";
         status = "okay";
         uart = <&uart0>;
-
-        /* Sensitivity settings */
         tp-sensitivity = <240>;
         tp-neg-inertia = <10>;
     };
 };
 
-/* UART Pin configuration */
 &pinctrl {
     uart0_default: uart0_default {
         group1 {
-            /* * RX (Data)  -> P0.02 (D0)
-             * TX (Clock) -> P0.03 (D1) 
-             */
-            psels = <NRF_PSEL(UART_TX, 0, 3)>,
-                    <NRF_PSEL(UART_RX, 0, 2)>;
+            psels = <NRF_PSEL(UART_TX, 0, 3)>, <NRF_PSEL(UART_RX, 0, 2)>;
         };
     };
 
     uart0_sleep: uart0_sleep {
         group1 {
-            psels = <NRF_PSEL(UART_TX, 0, 3)>,
-                    <NRF_PSEL(UART_RX, 0, 2)>;
+            psels = <NRF_PSEL(UART_TX, 0, 3)>, <NRF_PSEL(UART_RX, 0, 2)>;
             low-power-enable;
         };
     };
