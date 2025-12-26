@@ -11,13 +11,21 @@
         compatible = "zmk,kscan-gpio-direct";
         input-gpios = <&gpio0 28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
-    
-    ps2_mouse {
+
+    /* ↓ ラベル "ps2_mouse:" を追加 */
+    ps2_mouse: ps2_mouse {
         compatible = "zmk,input-mouse-ps2-uart";
         status = "okay";
         uart = <&uart0>;
         tp-sensitivity = <240>;
         tp-neg-inertia = <10>;
+    };
+
+    /* ↓ このリスナー設定が不足していました */
+    mouse_ps2_input_listener {
+        compatible = "zmk,input-listener-ps2";
+        status = "okay";
+        device = <&ps2_mouse>;
     };
 };
 
